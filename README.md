@@ -201,7 +201,7 @@ def search_line(close):
         print('↓')
     print(np.array(close[-1].state))
 ```
-##Result
+## Result
 The input is as below:
 ![](\image\2.png)
 The result is as below:
