@@ -17,7 +17,7 @@ class State:
         self.parent = parent  # 节点的父亲节点
 ```
 Next, you need to read in the initial state and the target state. The method adopted here is to use the built-in input function of python to read in, and then convert the read in data into a numpy array.
-```
+```python3
 # 输入初始状态与目标状态
 def inputstate():
     num_amount = int(input("请输入方阵的阶数："))
@@ -40,7 +40,7 @@ def inputstate():
     return start_state, end_state
 ```
 To solve the N digit problem, the solvability of the problem must be analyzed first. According to the data, I learned that if the order of the square matrix is N, then when N is an odd number, the reverse order numbers of the initial and final states have the same parity, so they can reach each other; When N is an even number, the parity of the absolute value of the difference between the reverse number of the initial and final states and the absolute value of the difference between the number of rows of the null value of the initial and final states is the same, so they can reach each other. 
-```
+```python3
 # 逆序数判断是否有解
 def have_solution(start_state, end_state):
     start_state_num = 0  # initial逆序数
@@ -84,7 +84,7 @@ def have_solution(start_state, end_state):
             return False
 ```
 In this code, I designed three heuristic functions: Not in Digits, Manhattan Distance, and Euclid Distance, as shown in Figure 5. The number of digits not in the position refers to the number of digits not in the corresponding position among N digits in the initial and final status. The other two heuristic functions add up the distance between each digit in the initial and final states, and divide it into Manhattan distance and Euclid distance according to the measurement of distance. The Manhattan distance refers to the sum of the absolute values of the difference between the horizontal and vertical coordinates, while the Euclid distance refers to the distance between the two in the two-dimensional plane. Combined with the movement rules of the N digital problem, I think Manhattan distance is more consistent with the actual rules of the N digital problem, so the effect should be better.
-```
+```python3
 # 启发函数
 def h(present, goal, choose):
     a = 0
@@ -112,7 +112,7 @@ def h(present, goal, choose):
 
 ```
 Considering the space complexity, the code is implemented in a circular way instead of recursion. In the process of the algorithm, I also performed some pruning operations. The specific algorithm implementation ideas are as follows. First, store the initial status in the list, and then pop up the initial status to load the child nodes. The calculation method of sub nodes is: first, check the position of 0, and then check the elements that can be moved when there are several elements in the top, bottom, left and right of 0. The new state after moving can form a new sub node. Load the formed sub nodes into the list again. When loading the list, prune them according to whether the list has this status, and then sort the nodes in the list according to the evaluation function. Then pop up the first element in the list, and so on, until the pop-up element is consistent with the target state, then terminate the loop. The code is as follows:
-```
+```python3
 # A*算法
 def a_star(start, end_state):
     print("启发函数：")
@@ -184,7 +184,7 @@ def a_star(start, end_state):
 
 ```
 Since the parent node of each node is saved, recursion is used for output.
-```
+```python3
 # 打印最短路径
 def best_path(n, result_list):
     if n.parent is not None:
