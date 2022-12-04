@@ -203,9 +203,9 @@ def search_line(close):
 ```
 ## Result
 The input is as below:
-[](\image\2.png)
+![](./image/2.png)
 The result is as below:
-[](\image\1.png)
+![](./image/1.png)
 And we can compare the three h(n):
-[](\image\3.png)
+[](./image/3.png)
 According to the actual situation, out of digits is the most efficient heuristic function with the shortest steps, while Manhattan distance is slightly inferior to out of digits, and Euclid distance is significantly inferior to the former two.
