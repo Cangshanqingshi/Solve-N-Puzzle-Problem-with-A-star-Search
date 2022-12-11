@@ -1,4 +1,4 @@
-# Solve N Puzzle Problem with A\* Search（A\*搜索解决八数码问题）
+# Solve N Puzzle Problem with A\* Search（A\*搜索解决N数码问题）
 
 
 
